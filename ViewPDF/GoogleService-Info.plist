@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>525640988842-oidbkec3af4i9rs5uvsakd1od2p8544f.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.525640988842-oidbkec3af4i9rs5uvsakd1od2p8544f</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBO7lwA0B6AgFOq7ZbFubA_gm_6A-SNWAM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>525640988842</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.sakibchonka.PDFViewer</string>
+	<key>PROJECT_ID</key>
+	<string>viewpdf-a61e8</string>
+	<key>STORAGE_BUCKET</key>
+	<string>viewpdf-a61e8.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:525640988842:ios:d225806e85c8420dd878d3</string>
+</dict>
+</plist>
