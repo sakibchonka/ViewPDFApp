@@ -40,9 +40,9 @@ struct MainView: View {
 						pdfHelper.convertPDFToWord(fileURL: url) { result in
 							switch result {
 							case .success(let response):
-								print("✅ Response from pdfRest:\n\(response)")
+								print("Response from pdfRest:\n\(response)")
 							case .failure(let error):
-								print("❌ Error: \(error.localizedDescription)")
+								print("Error: \(error.localizedDescription)")
 							}
 						
 						}

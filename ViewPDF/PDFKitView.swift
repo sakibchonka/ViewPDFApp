@@ -85,7 +85,7 @@ class Coordinator: NSObject {
 	
 	@objc func downloadPDF() {
 		guard hasConverted else {
-			print("🛑 Cannot download before conversion.")
+			print("Cannot download before conversion.")
 			return
 		}
 		
@@ -97,9 +97,9 @@ class Coordinator: NSObject {
 		do {
 			let data = try Data(contentsOf: pdfURL)
 			try data.write(to: destinationURL)
-			print("✅ PDF saved to: \(destinationURL)")
+			print("PDF saved to: \(destinationURL)")
 		} catch {
-			print("❌ Failed to save PDF: \(error)")
+			print("Failed to save PDF: \(error)")
 		}
 	}
 	
