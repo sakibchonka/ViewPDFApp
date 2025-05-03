@@ -5,24 +5,26 @@
 //  Created by Mohammed Saqib on 02/05/25.
 //
 
-//import Foundation
 import Combine
 import CoreData
 import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
-//import GoogleSignInSwift
 
 class AuthViewModel: ObservableObject {
 	@Published var user: User?
 	@Published var isSignedIn = false
+	private let coreDataHelper = CoreDataHelper()
 	private var cancellables = Set<AnyCancellable>()
 	
 	init() {
 		user = Auth.auth().currentUser
+		isSignedIn = user != nil
 		if let currentUser = user {
 			// TODO: this is called in every second launch and even for same user.
-			saveUserToCoreData(user: currentUser)
+			if coreDataHelper.fetchUser(withUID: currentUser.uid) == nil {
+				coreDataHelper.saveUserToCoreData(user: currentUser)
+			}
 		}
 		isSignedIn = user != nil
 	}
@@ -55,36 +57,6 @@ class AuthViewModel: ObservableObject {
 			self.isSignedIn = false
 		} catch {
 			print("Sign-out error: \(error)")
-		}
-	}
-	
-	func saveUserToCoreData(user: User) {
-		let context = PersistenceController.shared.container.viewContext
-		
-		let entity = UserEntity(context: context)
-		entity.uid = user.uid
-		entity.email = user.email
-		entity.displayName = user.displayName
-		entity.photoURL = user.photoURL?.absoluteString
-		
-		do {
-			try context.save()
-			print("user saved to core data")
-		} catch {
-			print("failed to save user: \(error)")
-		}
-	}
-	
-	func fetchSavedUser() -> UserEntity? {
-		let context = PersistenceController.shared.container.viewContext
-		let fetchRequest: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
-		
-		do {
-			let users = try context.fetch(fetchRequest)
-			return users.first
-		} catch {
-			print("failed to fetch user: \(error)")
-			return nil
 		}
 	}
 }

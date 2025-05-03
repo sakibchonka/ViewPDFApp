@@ -14,7 +14,6 @@ enum Destination: Hashable {
 struct MainView: View {
 	
 	@StateObject private var downloader = PDFDownloader()
-	private var pdfHelper = PDFRestAPIHelper()
 	@State private var path: [Destination] = []
 	
 	var body: some View {
@@ -36,17 +35,7 @@ struct MainView: View {
 				switch destination {
 				case .pdfViewer(let url):
 					
-					PDFKitView(url: url) { file in
-						pdfHelper.convertPDFToWord(fileURL: url) { result in
-							switch result {
-							case .success(let response):
-								print("Response from pdfRest:\n\(response)")
-							case .failure(let error):
-								print("Error: \(error.localizedDescription)")
-							}
-						
-						}
-					}
+					PDFKitView(url: url)
 				}
 			}
 			.onReceive(downloader.$downloadedURL.compactMap{$0}) { url in
