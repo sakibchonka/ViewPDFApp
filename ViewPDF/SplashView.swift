@@ -22,7 +22,6 @@ struct SplashView: View {
 
 struct _SplashView: View {
 	@Binding var isActive: Bool
-	@State private var animate = false
 	
 	var body: some View {
 		VStack {
@@ -31,12 +30,6 @@ struct _SplashView: View {
 				.clipShape(.rect(cornerRadius: 20))
 				.scaledToFit()
 				.frame(width: 150, height: 150)
-				.opacity(animate ? 1 : 0)
-				.onAppear {
-					withAnimation(.easeIn(duration: 0.5)) {
-						animate = true
-					}
-				}
 		}
 		.frame(maxWidth: .infinity, maxHeight: .infinity)
 		.background(
