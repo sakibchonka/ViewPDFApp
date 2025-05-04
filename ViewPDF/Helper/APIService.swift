@@ -1,14 +1,15 @@
 //
-//  PDFDownloader.swift
+//  APIService.swift
 //  ViewPDF
 //
 //  Created by Mohammed Saqib on 03/05/25.
 //
 import Foundation
 
-class PDFDownloader: ObservableObject {
+class APIService: ObservableObject {
 	@Published var downloadedURL: URL?
 	@Published var errorMessage: String?
+	@Published var products: [Product] = []
 	
 	func fetch(from urlString: String) {
 		guard let remoteURL = URL(string: urlString) else {
@@ -50,6 +51,41 @@ class PDFDownloader: ObservableObject {
 			}
 		}
 		task.resume()
+	}
+	
+	func fetchProducts(from urlString: String) {
+		guard let url = URL(string: urlString) else {
+			self.errorMessage = "Invalid product URL"
+			return
+		}
+		
+		URLSession.shared.dataTask(with: url) { data, _, error in
+			if let error = error {
+				DispatchQueue.main.async {
+					self.errorMessage = "API error: \(error.localizedDescription)"
+				}
+				return
+			}
+			
+			guard let data = data else {
+				DispatchQueue.main.async {
+					self.errorMessage = "No data received"
+				}
+				return
+			}
+			
+			do {
+				let fetchedProducts = try JSONDecoder().decode([Product].self, from: data)
+				DispatchQueue.main.async {
+					self.products = fetchedProducts
+					self.errorMessage = nil
+				}
+			} catch {
+				DispatchQueue.main.async {
+					self.errorMessage = "Parsing error: \(error.localizedDescription)"
+				}
+			}
+		}.resume()
 	}
 }
 

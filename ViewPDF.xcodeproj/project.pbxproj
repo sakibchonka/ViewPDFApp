@@ -11,6 +11,7 @@
 		02925DB42DC5440800E4E674 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 02925DB32DC5440800E4E674 /* GoogleSignInSwift */; };
 		02A8C0FF2DC54586008FA741 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 02A8C0FE2DC54586008FA741 /* FirebaseCore */; };
 		02A8C1012DC545EC008FA741 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 02A8C1002DC545EC008FA741 /* FirebaseAuth */; };
+		02A8C12F2DC6BC04008FA741 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 02A8C12E2DC6BC04008FA741 /* FirebaseMessaging */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 			files = (
 				02925DB22DC5440800E4E674 /* GoogleSignIn in Frameworks */,
 				02A8C0FF2DC54586008FA741 /* FirebaseCore in Frameworks */,
+				02A8C12F2DC6BC04008FA741 /* FirebaseMessaging in Frameworks */,
 				02925DB42DC5440800E4E674 /* GoogleSignInSwift in Frameworks */,
 				02A8C1012DC545EC008FA741 /* FirebaseAuth in Frameworks */,
 			);
@@ -93,6 +95,7 @@
 				02925DB32DC5440800E4E674 /* GoogleSignInSwift */,
 				02A8C0FE2DC54586008FA741 /* FirebaseCore */,
 				02A8C1002DC545EC008FA741 /* FirebaseAuth */,
+				02A8C12E2DC6BC04008FA741 /* FirebaseMessaging */,
 			);
 			productName = ViewPDF;
 			productReference = 02925D722DC53FBA00E4E674 /* ViewPDF.app */;
@@ -300,6 +303,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sakibchonka.ViewPDF;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -330,6 +337,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sakibchonka.ViewPDF;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -398,6 +409,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 02A8C0FB2DC54510008FA741 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		02A8C12E2DC6BC04008FA741 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02A8C0FB2DC54510008FA741 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

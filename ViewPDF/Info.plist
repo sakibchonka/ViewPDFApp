@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-	<dict>
-		<key>CFBundleURLTypes</key>
-		<array>
-			<dict>
-				<key>CFBundleTypeRole</key>
-				<string>Editor</string>
-				<key>CFBundleURLSchemes</key>
-				<array>
-					<string>com.googleusercontent.apps.525640988842-oidbkec3af4i9rs5uvsakd1od2p8544f</string>
-				</array>
-			</dict>
-		</array>
-		<key>GIDClientID</key>
-		<string>525640988842-oidbkec3af4i9rs5uvsakd1od2p8544f.apps.googleusercontent.com</string>
-	</dict>
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.525640988842-oidbkec3af4i9rs5uvsakd1od2p8544f</string>
+			</array>
+		</dict>
+	</array>
+	<key>GIDClientID</key>
+	<string>525640988842-oidbkec3af4i9rs5uvsakd1od2p8544f.apps.googleusercontent.com</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We need access to your camera to take photos</string>
+</dict>
 </plist>
