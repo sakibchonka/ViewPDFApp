@@ -15,7 +15,9 @@
 	</array>
 	<key>GIDClientID</key>
 	<string>525640988842-oidbkec3af4i9rs5uvsakd1od2p8544f.apps.googleusercontent.com</string>
-	<key>NSCameraUsageDescription</key>
-	<string>We need access to your camera to take photos</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>

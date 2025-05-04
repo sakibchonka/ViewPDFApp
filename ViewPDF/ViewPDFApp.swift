@@ -23,8 +23,7 @@ struct ViewPDFApp: App {
 	var body: some Scene {
 		WindowGroup {
 			SplashView()
-//            ContentView()
-//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+				.environment(\.managedObjectContext, persistenceController.container.viewContext)
 		}
 	}
 }
@@ -41,6 +40,7 @@ class Appdelegate: NSObject, UIApplicationDelegate {
 	}
 	
 	func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+		print("APNs device token received")
 		Messaging.messaging().apnsToken = deviceToken
 	}
 	
@@ -55,4 +55,5 @@ extension Appdelegate: MessagingDelegate {
 	func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
 		print("FCM Token: \(fcmToken ?? "")")
 	}
+	
 }
