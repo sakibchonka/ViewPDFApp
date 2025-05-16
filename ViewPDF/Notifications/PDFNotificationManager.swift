@@ -32,13 +32,13 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate, Observabl
 	
 	func sendItemDeletedNotification(itemName: String) {
 		let content = UNMutableNotificationContent()
-		content.title = "Item Deleted"
-		content.body = "The item \(itemName) was deleted."
+		content.title = "Product Deleted"
+		content.body = "The product \(itemName) was deleted."
 		content.sound = .default
 		
 		let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
 		
-		let request = UNNotificationRequest(identifier: "ItemDeletedNotification", content: content, trigger: trigger)
+		let request = UNNotificationRequest(identifier: "ProductDeletedNotification", content: content, trigger: trigger)
 		
 		UNUserNotificationCenter.current().add(request) { error in
 			if let error = error {
