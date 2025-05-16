@@ -29,10 +29,28 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate, Observabl
 			}
 		}
 	}
+	
+	func sendItemDeletedNotification(itemName: String) {
+		let content = UNMutableNotificationContent()
+		content.title = "Item Deleted"
+		content.body = "The item \(itemName) was deleted."
+		content.sound = .default
+		
+		let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+		
+		let request = UNNotificationRequest(identifier: "ItemDeletedNotification", content: content, trigger: trigger)
+		
+		UNUserNotificationCenter.current().add(request) { error in
+			if let error = error {
+				print("Error scheduling local notification: \(error.localizedDescription)")
+			}
+		}
+	}
 
-//	// Optional: Handle foreground notifications (if needed)
-//	func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-//		completionHandler([.alert, .badge, .sound])
-//	}
+	func userNotificationCenter(_ center: UNUserNotificationCenter,
+								willPresent notification: UNNotification,
+								withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+		completionHandler([.banner, .badge, .sound])
+	}
 }
 

@@ -16,6 +16,8 @@ struct ProductListView: View {
 
 	let manager = CoreDataHelper()
 	@StateObject private var apiService = APIService()
+	
+	let notificationManager = NotificationManager()
 
 	var body: some View {
 		NavigationView {
@@ -119,6 +121,7 @@ struct ProductListView: View {
 			let product = products[index]
 			if let id = product.id {
 				do {
+					notificationManager.sendItemDeletedNotification(itemName: product.name ?? "Unknown Item")
 					try manager.deleteProduct(id: id)
 					try loadProducts()
 				} catch {
